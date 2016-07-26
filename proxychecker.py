@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import requests
 import json
-import gevent
+#import gevent
 import threading
 
 url = 'https://ifconfig.co/json' # checker url
@@ -19,9 +19,9 @@ def check(proxies):
 		try:
 			r = requests.get(url,verify=verify,timeout=10,proxies=proxies)
 			output = json.loads(r.content)
-			if output["country"]!="Pakistan":
-				working.append(item)
-				print ("%s,%s"% (output["ip"],output["country"]))
+			#if output["country"]!="Pakistan":
+			working.append(item)
+			print ("%s,%s"% (output["ip"],output["country"]))
 		except Exception, detail:
 			return False
 if __name__ == "__main__":
